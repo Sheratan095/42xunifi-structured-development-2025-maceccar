@@ -4,9 +4,6 @@ float	average(const int *arr, int size)
 	int	sum = 0;
 	int	valid_count = 0;
 
-	if (size <= 0)
-		return 0.0;
-
 	for (int i = 0; i < size; i++)
 	{
 		if (arr[i] >= 0 && arr[i] <= 100)
