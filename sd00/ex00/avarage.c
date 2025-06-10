@@ -5,7 +5,7 @@ float	average(const int *arr, int size)
 	int	valid_count = 0;
 
 	if (size <= 0)
-		return (0.0);
+		return 0.0;
 
 	for (int i = 0; i < size; i++)
 	{
@@ -17,7 +17,7 @@ float	average(const int *arr, int size)
 	}
 
 	if (valid_count == 0)
-		return (0.0); // Avoid division by zero if no valid elements
+		return 0.0; // Avoid division by zero if no valid elements
 
-	return ((float)sum / valid_count); // Return the average as a float
+	return ((float)sum / valid_count);
 }
