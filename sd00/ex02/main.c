@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-	const int	arr[] = {1, 2, 3, 4, 5, -1, 6};
+	const int	arr[] = {2, 3, 4, -1, 5, 6, -1, 1, 2, 3, 4};
 	int	size = sizeof(arr) / sizeof(arr[0]);
 
 	int	result = count_segments(arr, size);

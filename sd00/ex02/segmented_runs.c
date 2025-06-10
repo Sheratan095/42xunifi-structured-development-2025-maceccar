@@ -17,8 +17,7 @@ int	count_segments(const int *arr, int size)
 			int	sequence_len = i - subsequence_start;
 			if (sequence_len > 0)
 			{
-				if (contains_increasign_run(&arr[subsequence_start], sequence_len) == 1)
-					result++;
+				result += contains_increasign_run(&arr[subsequence_start], sequence_len);
 				subsequence_start = i + 1; // move to the next subsequence
 			}
 		}
