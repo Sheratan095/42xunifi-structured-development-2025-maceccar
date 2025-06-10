@@ -11,5 +11,5 @@ int main(int argc, char *argv[])
 
 	printf("Average: %.2f\n", result);
 
-	return (0);
+	return 0;
 }
