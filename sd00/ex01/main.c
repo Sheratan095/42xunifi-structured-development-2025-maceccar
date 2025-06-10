@@ -7,7 +7,8 @@ int main(int argc, char *argv[])
 	int arr[] = {1, 2, 3, 4, 5, 3, 6};
 	int size = sizeof(arr) / sizeof(arr[0]);
 	int target = 1;
-	int first, last;
+	int first;
+	int last;
 
 	first_last(arr, size, target, &first, &last);
 
