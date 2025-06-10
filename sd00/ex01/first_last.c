@@ -1,4 +1,5 @@
 
+//arr should be int * and instead of int[] for sonarQube
 void	first_last(int arr[], int size, int target, int *first, int *last)
 {
 	*first = -1;
