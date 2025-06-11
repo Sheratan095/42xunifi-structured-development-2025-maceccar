@@ -9,7 +9,7 @@ FSNode	*create_file(const char *name, int size)
 	file->name = strdup(name);
 	if (!file->name)
 	{
-		free(file);
+		// free(file); not allowed function
 		return NULL;
 	}
 
@@ -31,7 +31,7 @@ FSNode	*create_folder(const char *name)
 	folder->name = strdup(name);
 	if (!folder->name)
 	{
-		free(folder);
+		// free(folder); not allowed function
 		return NULL;
 	}
 
