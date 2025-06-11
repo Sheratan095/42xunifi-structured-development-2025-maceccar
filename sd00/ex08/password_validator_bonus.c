@@ -38,12 +38,28 @@ PwStatus	validate_password(const char *new_pw, PasswordHistory *history)
 			!has_uppercase || !has_special_char || i < 8)
 		return INVALID;
 
+	// if (history->passwords[0] != NULL)
+	// 		free(history->passwords[0]); // free the oldest password if it exists
+
 	// shift to left the passwords in history
+	return VALID;
+}
+
+void	add_pw_to_history(PasswordHistory *history, char *new_pw)
+{
+	if (history == NULL || new_pw == NULL)
+		return ;
+
+	if (history->count < 3)
+	{
+		history->passwords[history->count] = new_pw;
+		history->count++;
+		return ;
+	}
+
 	history->passwords[0] = history->passwords[1];
 	history->passwords[1] = history->passwords[2];
-	history->passwords[2] = (char *)new_pw; // store the new password in the last position
-
-	return VALID;
+	history->passwords[2] = new_pw;
 }
 
 //Similarity rule:
@@ -112,73 +128,95 @@ static int ft_abs(int n)
 	return (n < 0) ? -n : n;
 }
 
-// static void print_test_result(const char* test_name, bool passed) {
-//     printf("%-40s : %s\n", test_name, passed ? "PASSED" : "FAILED");
-// }
+static void print_test_result(const char* test_name, bool passed) {
+	printf("%-40s : %s\n", test_name, passed ? "PASSED" : "FAILED");
+}
 
 // int main()
 // {
-//     printf("=== Testing Password Similarity ===\n");
-    
-//     // Test identical passwords
-//     print_test_result("Identical passwords", 
-//                       are_similar("Password123!", "Password123!") == true);
-    
-//     // Test one character different
-//     print_test_result("One character substitution", 
-//                       are_similar("Password123!", "Password124!") == true);
-                      
-//     // Test one character added
-//     print_test_result("One character addition", 
-//                       are_similar("Password123!", "Password1234!") == true);
-                      
-//     // Test one character removed
-//     print_test_result("One character removal", 
-//                       are_similar("Password123!", "Password12!") == true);
-                      
-//     // Test two characters different (should not be similar)
-//     print_test_result("Two characters different", 
-//                       are_similar("Password123!", "Password643!") == false);
-                      
-//     // Test two characters longer (should not be similar)
-//     print_test_result("Two characters longer", 
-//                       are_similar("Password123!", "Password123!AB") == false);
-    
-//     printf("\n=== Testing Full Password Validation ===\n");
-    
-//     // Create password history
-//     PasswordHistory history;
-//     history.passwords[0] = "OldPass123!";
-//     history.passwords[1] = "Previous2#";
-//     history.passwords[2] = "FirstOne3$";
-    
-//     // Test valid password
-//     print_test_result("Valid password", 
-//                       validate_password("NewPassword4%", &history) == VALID);
-    
-//     // Test too similar to history
-//     print_test_result("Too similar to oldest password", 
-//                       validate_password("FirstOne3$X", &history) == INVALID);
-                      
-//     // Test too short
-//     print_test_result("Too short", 
-//                       validate_password("Short1!", &history) == INVALID);
-                      
-//     // Test missing uppercase
-//     print_test_result("Missing uppercase", 
-//                       validate_password("password123!", &history) == INVALID);
-                      
-//     // Test missing lowercase
-//     print_test_result("Missing lowercase", 
-//                       validate_password("PASSWORD123!", &history) == INVALID);
-                      
-//     // Test missing digit
-//     print_test_result("Missing digit", 
-//                       validate_password("PasswordNoDigit!", &history) == INVALID);
-                      
-//     // Test missing special character
-//     print_test_result("Missing special character", 
-//                       validate_password("Password12345", &history) == INVALID);
-    
-//     return 0;
+// 	printf("=== Testing Password Similarity ===\n");
+	
+// 	// Test identical passwords
+// 	print_test_result("Identical passwords", 
+// 					  are_similar("Password123!", "Password123!") == true);
+	
+// 	// Test one character different
+// 	print_test_result("One character substitution", 
+// 					  are_similar("Password123!", "Password124!") == true);
+					  
+// 	// Test one character added
+// 	print_test_result("One character addition", 
+// 					  are_similar("Password123!", "Password1234!") == true);
+					  
+// 	// Test one character removed
+// 	print_test_result("One character removal", 
+// 					  are_similar("Password123!", "Password12!") == true);
+					  
+// 	// Test two characters different (should not be similar)
+// 	print_test_result("Two characters different", 
+// 					  are_similar("Password123!", "Password643!") == false);
+					  
+// 	// Test two characters longer (should not be similar)
+// 	print_test_result("Two characters longer", 
+// 					  are_similar("Password123!", "Password123!AB") == false);
+	
+// 	printf("\n=== Testing Full Password Validation and History ===\n");
+	
+// 	// Create password history
+// 	PasswordHistory history;
+// 	// Initialize history
+// 	for (int i = 0; i < 3; i++)
+// 		history.passwords[i] = NULL;
+// 	history.count = 0;
+	
+// 	// Add initial passwords to history
+// 	char *pw1 = ("OldPass123!");
+// 	char *pw2 = ("Previous2#");
+// 	char *pw3 = ("FirstOne3$");
+	
+// 	add_pw_to_history(&history, pw1);
+// 	add_pw_to_history(&history, pw2);
+// 	add_pw_to_history(&history, pw3);
+	
+// 	print_test_result("History initialization", 
+// 					 history.count == 3 && 
+// 					 history.passwords[0] == pw1 && 
+// 					 history.passwords[1] == pw2 && 
+// 					 history.passwords[2] == pw3);
+	
+// 	// Test valid password
+// 	print_test_result("Valid password", 
+// 					 validate_password("NewPassword4%", &history) == VALID);
+	
+// 	// Test too similar to history
+// 	print_test_result("Too similar to history password", 
+// 					 validate_password("FirstOne3$X", &history) == INVALID);
+	
+// 	// Test invalid passwords due to pattern requirements
+// 	print_test_result("Too short", 
+// 					 validate_password("Short1!", &history) == INVALID);
+					  
+// 	print_test_result("Missing uppercase", 
+// 					 validate_password("password123!", &history) == INVALID);
+					  
+// 	print_test_result("Missing lowercase", 
+// 					 validate_password("PASSWORD123!", &history) == INVALID);
+					  
+// 	print_test_result("Missing digit", 
+// 					 validate_password("PasswordNoDigit!", &history) == INVALID);
+					  
+// 	print_test_result("Missing special character", 
+// 					 validate_password("Password12345", &history) == INVALID);
+	
+// 	// Test history rotation (adding a 4th password)
+// 	char *pw4 = ("NewerPass5^");
+// 	add_pw_to_history(&history, pw4);
+	
+// 	print_test_result("History rotation", 
+// 					 history.count == 3 && 
+// 					 history.passwords[0] == pw2 && 
+// 					 history.passwords[1] == pw3 && 
+// 					 history.passwords[2] == pw4);
+	
+// 	return 0;
 // }

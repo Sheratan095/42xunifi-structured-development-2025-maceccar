@@ -3,6 +3,8 @@
 
 #include <stddef.h>
 #include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
 
 typedef enum PwStatus
 {
@@ -13,6 +15,7 @@ typedef enum PwStatus
 typedef struct PasswordHistory
 {
 	char	*passwords[3];
+	int		count;
 } PasswordHistory;
 
 // PwStatus	validate_password(const char *new_pw, const char *curr_pw);
