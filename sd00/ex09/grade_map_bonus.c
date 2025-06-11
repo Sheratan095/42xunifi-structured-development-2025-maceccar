@@ -89,7 +89,7 @@ void free_distribution(GradeNode *head)
 	while (current)
 	{
 		GradeNode	*next = current->next;
-		free((void *)current->grade);
+		free(current->grade);
 		free(current);
 		current = next;
 	}

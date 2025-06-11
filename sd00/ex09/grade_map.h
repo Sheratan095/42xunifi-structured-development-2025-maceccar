@@ -10,7 +10,7 @@ typedef const char *(*GradeMapper)(int score);
 
 typedef struct GradeNode
 {
-	const char	*grade;
+	char	*grade;
 	int			count;
 	struct GradeNode *next;
 } GradeNode;
