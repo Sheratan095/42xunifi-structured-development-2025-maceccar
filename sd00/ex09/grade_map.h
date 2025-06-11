@@ -29,6 +29,6 @@ void		print_distribution(GradeNode *head);
 
 void		free_distribution(GradeNode *head);
 
-int		ft_strlen(const char *str);
+int			ft_strlen(const char *str);
 
 #endif
