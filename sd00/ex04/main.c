@@ -122,8 +122,5 @@ int main() {
     
     printf("\nAll tests completed successfully!\n");
     
-    // Clean up (in a real program, we would free all the memory here)
-    // TODO: Implement a cleanup function to free all allocated memory
-    
     return 0;
 }
