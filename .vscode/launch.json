@@ -8,7 +8,7 @@
 		"name": "(gdb) Launch",
 		"type": "cppdbg",
 		"request": "launch",
-		"program": "${workspaceFolder}/sd00/ex03/critical_windows",
+		"program": "${workspaceFolder}/sd00/ex06/a.out",
 		"args": [],
 		"stopAtEntry": false,
 		"cwd": "${fileDirname}",

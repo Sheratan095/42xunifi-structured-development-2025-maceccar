@@ -57,15 +57,15 @@ const char *standard_mapper(int score)
 		return "Invalid score";
 
 	if (score < 60)
-		return ("F");
+		return "F";
 	if (score < 70)
-		return ("D");
+		return "D";
 	if (score < 80)
-		return ("C");
+		return "C";
 	if (score < 90)
-		return ("B");
+		return "B";
 	if (score <= 100)
-		return ("A");
+		return "A";
 
 	return "Invalid score";
 }
