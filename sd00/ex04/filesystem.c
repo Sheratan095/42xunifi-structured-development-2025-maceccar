@@ -76,7 +76,7 @@ FSNode	*get_sibling(const FSNode *node)
 		return NULL;
 
 	// Find the first sibling of the node that is not the node itself
-	FSNode	*parent = node->parent;
+	const FSNode	*parent = node->parent;
 	for (int i = 0; i < parent->childrenCount; i++)
 	{
 		if (parent->children[i] != node)
