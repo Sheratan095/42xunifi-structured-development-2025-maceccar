@@ -56,7 +56,7 @@ static bool	ft_strcmp(const char *s1, const char *s2)
 			return false;
 		i++;
 	}
-	return (true);
+	return true;
 }
 
 static bool	is_digit(const char c)
