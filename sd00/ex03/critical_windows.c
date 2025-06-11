@@ -5,7 +5,7 @@ static bool	check_window(const int *win_start, const int *win_end);
 int	count_critical_windows(const int *readings, int size)
 {
 	int	count = 0;
-	const int	*win_start = (int *)readings;
+	const int	*win_start = readings;
 	const int	*win_end;
 
 	if (size < 5)
@@ -13,7 +13,7 @@ int	count_critical_windows(const int *readings, int size)
 
 	for (int i = 0; i <= size - 5; i++)
 	{
-		win_end = (int *)(readings + i + 5);
+		win_end = readings + i + 5;
 		if (check_window(win_start, win_end))
 		{
 			count++;
