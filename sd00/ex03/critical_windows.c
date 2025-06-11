@@ -1,4 +1,6 @@
-static int	check_window(const int *win_start, const int *win_end);
+#include "critical_windows.h"
+
+static bool	check_window(const int *win_start, const int *win_end);
 
 int	count_critical_windows(const int *readings, int size)
 {
@@ -23,15 +25,15 @@ int	count_critical_windows(const int *readings, int size)
 }
 
 // 1: Critical, 0: Non critical
-static int	check_window(const int *win_start, const int *win_end)
+static bool	check_window(const int *win_start, const int *win_end)
 {
 	int	total = 0;//used to calculate the avarage
 	int	critical_days = 0;//used to count the days with readings >= 70
 
 	for (const int *ptr = win_start; ptr < win_end; ptr++)
 	{
-		if (*ptr >= 150)
-			return 0;
+		if (*ptr > 150)
+			return false;
 
 		if (*ptr >= 70)
 			critical_days++;
@@ -40,7 +42,7 @@ static int	check_window(const int *win_start, const int *win_end)
 	}
 
 	if (total / (win_end - win_start) >= 90 && critical_days >= 3)
-		return 1;
+		return true;
 
-	return 0;
+	return false;
 }
