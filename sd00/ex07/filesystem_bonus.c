@@ -31,7 +31,7 @@ void	print_structure(const FSNode *node, int indent)
 	printf("%s (%s, %d bytes)\n", 
 		   node->name, 
 		   node->type == FILE_TYPE ? "file" : "directory", 
-		   node->type == FILE_TYPE ? node->size : compute_total_size((const FSNode *)node));
+		   node->type == FILE_TYPE ? node->size : compute_total_size(node));
 
 	// Print children if it's a directory
 	if (node->type == DIRECTORY_TYPE)
