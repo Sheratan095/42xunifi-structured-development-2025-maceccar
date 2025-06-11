@@ -5,8 +5,8 @@ static bool	check_window(const int *win_start, const int *win_end);
 int	count_critical_windows(const int *readings, int size)
 {
 	int	count = 0;
-	int	*win_start = (int *)readings;
-	int	*win_end;
+	const int	*win_start = (int *)readings;
+	const int	*win_end;
 
 	if (size < 5)
 		return 0; // Not enough readings to form a window
