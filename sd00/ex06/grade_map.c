@@ -70,27 +70,27 @@ const char *standard_mapper(int score)
 	return "Invalid score";
 }
 
-int main()
-{
-	// Create a test array with scores covering the full range
-	int scores[] = {0, 45, 59, 60, 65, 72, 78, 82, 87, 90, 95, 100, 105};
-	int size = sizeof(scores) / sizeof(scores[0]);
-	const char *mapped_grades[size];
+// int main()
+// {
+// 	// Create a test array with scores covering the full range
+// 	int scores[] = {0, 45, 59, 60, 65, 72, 78, 82, 87, 90, 95, 100, 105};
+// 	int size = sizeof(scores) / sizeof(scores[0]);
+// 	const char *mapped_grades[size];
 	
-	printf("=== Testing Plus/Minus Grading ===\n");
-	map_scores(scores, size, plusminus_mapper, mapped_grades);
-	for (int i = 0; i < size; i++)
-		printf("Score %3d: %s\n", scores[i], mapped_grades[i]);
+// 	printf("=== Testing Plus/Minus Grading ===\n");
+// 	map_scores(scores, size, plusminus_mapper, mapped_grades);
+// 	for (int i = 0; i < size; i++)
+// 		printf("Score %3d: %s\n", scores[i], mapped_grades[i]);
 	
-	printf("\n=== Testing Pass/Fail Grading ===\n");
-	map_scores(scores, size, passfail_mapper, mapped_grades);
-	for (int i = 0; i < size; i++)
-		printf("Score %3d: %s\n", scores[i], mapped_grades[i]);
+// 	printf("\n=== Testing Pass/Fail Grading ===\n");
+// 	map_scores(scores, size, passfail_mapper, mapped_grades);
+// 	for (int i = 0; i < size; i++)
+// 		printf("Score %3d: %s\n", scores[i], mapped_grades[i]);
 	
-	printf("\n=== Testing Standard Grading ===\n");
-	map_scores(scores, size, standard_mapper, mapped_grades);
-	for (int i = 0; i < size; i++)
-		printf("Score %3d: %s\n", scores[i], mapped_grades[i]);
+// 	printf("\n=== Testing Standard Grading ===\n");
+// 	map_scores(scores, size, standard_mapper, mapped_grades);
+// 	for (int i = 0; i < size; i++)
+// 		printf("Score %3d: %s\n", scores[i], mapped_grades[i]);
 
-	return 0;
-}
+// 	return 0;
+// }
