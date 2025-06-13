@@ -12,14 +12,14 @@ int		process_food_order(struct OrderRequest *request)
 		OrderConfirmation	*conf = create_confirmation(request);
 		send_confirmation_notification(conf);
 		free_OrderConfirmation(conf);
-		return (1);
+		return 1;
 	}
 
 	return -1;
 }
 
 // factory based on desired_arrive_datetime
-struct OrderConfirmation	*create_confirmation(struct OrderRequest *request)
+struct OrderConfirmation	*create_confirmation(const struct OrderRequest *request)
 {
 	// means it's pre-orderd
 	if (request->desired_arrive_datetime != NULL)
