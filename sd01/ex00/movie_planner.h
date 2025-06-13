@@ -24,7 +24,7 @@ typedef struct Preferences
 {
 	char		*username;
 	Genre		*preferred_genre;
-	Preferences	*next;
+	struct Preferences	*next;
 } Preferences;
 
 typedef struct Movie
