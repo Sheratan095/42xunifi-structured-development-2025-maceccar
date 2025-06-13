@@ -36,26 +36,26 @@ struct WorkoutPlan	*create_workout_schedule(char *username)
 	return plan;
 }
 
-void	free_exercise(Exercise *exercise)
-{
-	if (!exercise)
-		return;
+// void	free_exercise(Exercise *exercise)
+// {
+// 	if (!exercise)
+// 		return;
 
-	free(exercise->name);
-	free(exercise);
-}
+// 	free(exercise->name);
+// 	free(exercise);
+// }
 
-void	free_daily_plan(DailyPlan *daily_plan)
-{
-	if (!daily_plan)
-		return;
+// void	free_daily_plan(DailyPlan *daily_plan)
+// {
+// 	if (!daily_plan)
+// 		return;
 
-	for (int i = 0; i < daily_plan->num_exercises; i++)
-		free_exercise(&daily_plan->exercises[i]);
+// 	for (int i = 0; i < daily_plan->num_exercises; i++)
+// 		free_exercise(&daily_plan->exercises[i]);
 
-	for (int j = 0; daily_plan->tips && daily_plan->tips[j]; j++)
-		free(daily_plan->tips[j]);
+// 	for (int j = 0; daily_plan->tips && daily_plan->tips[j]; j++)
+// 		free(daily_plan->tips[j]);
 
-	free(daily_plan->tips);
-	free(daily_plan);
-}
+// 	free(daily_plan->tips);
+// 	free(daily_plan);
+// }

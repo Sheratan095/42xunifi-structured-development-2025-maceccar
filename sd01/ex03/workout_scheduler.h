@@ -73,8 +73,8 @@ void	free_workout_plan(struct WorkoutPlan *plan);
 
 struct WorkoutPlan	*create_workout_schedule(char *username);
 
-void	free_exercise(Exercise *exercise);
-void	free_daily_plan(DailyPlan *daily_plan);
+// void	free_exercise(Exercise *exercise);
+// void	free_daily_plan(DailyPlan *daily_plan);
 
 void	assign_new_workout_plan(struct WorkoutPlan *plan, char *username);
 
