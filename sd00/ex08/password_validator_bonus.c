@@ -128,9 +128,9 @@ static int ft_abs(int n)
 	return (n < 0) ? -n : n;
 }
 
-static void print_test_result(const char* test_name, bool passed) {
-	printf("%-40s : %s\n", test_name, passed ? "PASSED" : "FAILED");
-}
+// static void print_test_result(const char* test_name, bool passed) {
+// 	printf("%-40s : %s\n", test_name, passed ? "PASSED" : "FAILED");
+// }
 
 // int main()
 // {
