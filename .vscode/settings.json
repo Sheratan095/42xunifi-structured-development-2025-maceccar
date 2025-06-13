@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"grade_map_bonus.C": "cpp",
+		"cstdlib": "cpp",
+		"movie_planner.h": "c"
+	}
+}
