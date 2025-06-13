@@ -61,7 +61,7 @@ void	send_confirmation_notification(struct OrderConfirmation *confirmation);
 
 int		process_food_order(struct OrderRequest *request);
 
-struct OrderConfirmation	*create_confirmation(struct OrderRequest *request);
+struct OrderConfirmation	*create_confirmation(const struct OrderRequest *request);
 
 void	free_OrderConfirmation(OrderConfirmation *conf);
 
