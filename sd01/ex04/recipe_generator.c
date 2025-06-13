@@ -35,13 +35,3 @@ struct Recipe	*create_custom_recipe(void)
 
 	return current_recipe;
 }
-
-void	free_ingredient(struct Ingredient *ingredient)
-{
-	if (!ingredient)
-		return;
-
-	// free(ingredient->name);
-	// free(ingredient->unit);
-	// free(ingredient);
-}

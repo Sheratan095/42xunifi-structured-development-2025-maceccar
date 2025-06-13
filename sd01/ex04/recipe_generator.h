@@ -52,7 +52,5 @@ void	free_recipe(struct Recipe *recipe);
 
 struct Recipe	*create_custom_recipe(void);
 
-void	free_ingredient(struct Ingredient *ingredient);
-
 
 #endif
