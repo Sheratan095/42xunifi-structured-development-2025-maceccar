@@ -32,10 +32,10 @@ struct ScheduleResult *schedule_tasks(struct TaskList *tasks)
 	// Step 5: Select the best task for each core
 	for (int i = 0; i < core_count; i++)
 	{
-		int task_id = select_best_task(profiles);
+		int task_id = select_best_task_for_current_priorities(profiles, priorities);
 		if (task_id == -1)
 			break;
-		
+
 		// Assign the selected task to the current core
 		update_schedule_entry(result, i, task_id);
 	}

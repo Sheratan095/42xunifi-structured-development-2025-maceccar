@@ -51,7 +51,7 @@ struct PriorityMap	*compute_priorities_mock(struct TaskProfile *profile);
 int	get_available_core_count(void);
 
 // Select the best task to assign next based on the profile. Returns a task ID or -1 on failure.
-int	select_best_task(struct TaskProfile *profile);
+int	select_best_task_for_current_priorities(struct TaskProfile *profile, struct PriorityMap *priorities);
 
 // Create a ScheduleResult structure for the specified number of cores. Returns NULL on failure.
 struct ScheduleResult	*create_schedule_result(int core_count);
@@ -62,7 +62,7 @@ void	update_schedule_entry(struct ScheduleResult *result, int core_id, int task_
 // Free functions for cleanup
 void	free_task_profile(struct TaskProfile *profile);
 void	free_priority_map(struct PriorityMap *priorities);
-void	free_loadinfo(struct LoadInfo *load);
+void	free_schedule_result(struct ScheduleResult *result);
 
 struct ScheduleResult	*schedule_tasks(struct TaskList *tasks);
 
