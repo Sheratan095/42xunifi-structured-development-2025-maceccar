@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	// else
 	// 	ft_printf("Error saving contacts to file: %s\n", argv[1]);
 
-	// free_contacts(contacts);
+	free_contacts(contacts);
 }
 
 void	prompt(Contact *contacts)
@@ -66,5 +66,6 @@ void	prompt(Contact *contacts)
 	}
 	while (ft_strncmp(input, EXIT_COMMAND, ft_strlen(EXIT_COMMAND)) != 0);
 
+	free(input);
 	get_next_line(0, true);
 }

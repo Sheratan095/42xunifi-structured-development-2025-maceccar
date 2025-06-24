@@ -10,6 +10,7 @@ SRC = src/main.c \
 		src/contact_manager.c \
 		src/contact_loading.c \
 		src/new_contact.c \
+		src/cleanup.c \
 
 FLAGS	= -g
 # FLAGS	+= -Wall -Werror -Wextra
