@@ -44,6 +44,8 @@ bool		remove_contact(Contact *contacts, int id);
 
 bool		update_contact(Contact *contacts, int id, const char *new_name, const char *new_phone, const char *new_email, const char *new_city, const char *new_address);
 
+void		show_all_contacts(Contact *contacts);
+
 Contact		*search(Contact *contacts, const char *query, SearchType search_type);
 
 Contact		*search_by_name(Contact *contacts, const char *name);
