@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 #include <stdio.h>
+#include "corekit.h"
 
 #define TARGET_FILE_EXTENSION ".csv"
 
