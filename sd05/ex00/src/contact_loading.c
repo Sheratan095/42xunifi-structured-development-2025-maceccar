@@ -4,9 +4,7 @@
 static char		**parse_csv_line(char *line);
 static void		free_fields(char **fields);
 static t_bool	validate_contact_fields(char **fields);
-static t_bool	is_valid_id(const char *id_str);
-static t_bool	is_valid_phone(const char *phone);
-static t_bool	is_valid_email(const char *email);
+static t_bool	is_valid_id_str(const char *id_str);
 static void		print_warning(const char *warning, const char *line, int line_number);
 
 Contact		*load_contacts(const char *filename)
@@ -138,7 +136,7 @@ static char	**parse_csv_line(char *line)
 static t_bool	validate_contact_fields(char **fields)
 {
 	// Check ID is valid positive integer
-	if (!is_valid_id(fields[0]))
+	if (!is_valid_id_str(fields[0]))
 		return false;
 		
 	int id = ft_atoi(fields[0]);
@@ -149,11 +147,11 @@ static t_bool	validate_contact_fields(char **fields)
 	if (ft_strlen(fields[1]) == 0 || ft_strlen(fields[4]) == 0)
 		return false;
 	
-	// Check phone format
+	// Check phone format using the shared function
 	if (!is_valid_phone(fields[2]))
 		return false;
 		
-	// Check email format
+	// Check email format using the shared function
 	if (!is_valid_email(fields[3]))
 		return false;
 		
@@ -162,8 +160,8 @@ static t_bool	validate_contact_fields(char **fields)
 	return true;
 }
 
-// Check if string represents a valid integer
-static t_bool	is_valid_id(const char *id_str)
+// Check if string represents a valid integer (renamed to avoid conflicts)
+static t_bool is_valid_id_str(const char *id_str)
 {
 	if (!id_str || *id_str == '\0')
 		return false;
@@ -176,50 +174,6 @@ static t_bool	is_valid_id(const char *id_str)
 		id_str++;
 	}
 	
-	return true;
-}
-
-// Check if phone contains at least one digit and only valid characters
-static t_bool	is_valid_phone(const char *phone)
-{
-	if (!phone || *phone == '\0')
-		return false;
-		
-	t_bool has_digit = false;
-	while (*phone)
-	{
-		if (ft_isdigit(*phone))
-			has_digit = true;
-		else if (*phone != '+' && *phone != '-' && *phone != '(' && *phone != ')' && 
-				*phone != ' ' && *phone != '.' && *phone != '/')
-			return false;
-		phone++;
-	}
-	
-	return has_digit;
-}
-
-// Check if email has proper format with @ and domain with dot
-static t_bool	is_valid_email(const char *email)
-{
-	if (!email || *email == '\0')
-		return false;
-		
-	// Find the @ symbol
-	const char *at_pos = ft_strchr(email, '@');
-	if (!at_pos || at_pos == email) // No @ or @ is the first character
-		return false;
-		
-	// Check domain part
-	const char *domain = at_pos + 1;
-	if (*domain == '\0') // Empty domain
-		return false;
-		
-	// Check for dot in domain
-	const char *dot_pos = ft_strchr(domain, '.');
-	if (!dot_pos || dot_pos == domain || *(dot_pos + 1) == '\0')
-		return false;
-		
 	return true;
 }
 

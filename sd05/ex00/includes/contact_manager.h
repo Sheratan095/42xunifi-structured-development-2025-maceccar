@@ -58,4 +58,8 @@ void		free_contacts(Contact *contacts);
 
 void		free_contact(Contact *contact);
 
+// Validation functions
+t_bool is_valid_phone(const char *phone);
+t_bool is_valid_email(const char *email);
+
 #endif
