@@ -25,6 +25,7 @@ clean:
 
 fclean: clean
 	@${MAKE} -sC $(COREKIT_PATH) fclean
+	@rm -f $(NAME)
 	@echo "$(RED)[$(NAME)]:\t FCLEAN$(RESET)"; \
 
 
