@@ -145,3 +145,47 @@ t_bool is_valid_email(const char *email)
 	return true;
 }
 
+t_bool update_contact(Contact *contacts, int id, const char *new_name, const char *new_phone, const char *new_email, const char *new_city, const char *new_address)
+{
+	if (!contacts || !new_name || !new_phone || !new_email || !new_city || !new_address)
+		return false;
+		
+	// Validate the inputs
+	if (ft_strlen(new_name) == 0 || ft_strlen(new_city) == 0)
+		return false;
+		
+	if (!is_valid_phone(new_phone) || !is_valid_email(new_email))
+		return false;
+	
+	// Find the contact with the given ID
+	Contact *current = contacts;
+	while (current)
+	{
+		if (current->id == id && !current->removed)
+		{
+			// Free existing memory
+			free(current->name);
+			free(current->phone);
+			free(current->email);
+			free(current->city);
+			free(current->address);
+			
+			// Assign new values
+			current->name = ft_strdup((char *)new_name);
+			current->phone = ft_strdup((char *)new_phone);
+			current->email = ft_strdup((char *)new_email);
+			current->city = ft_strdup((char *)new_city);
+			current->address = ft_strdup((char *)new_address);
+			
+			// Verify allocation succeeded
+			if (!current->name || !current->phone || !current->email || 
+				!current->city || !current->address)
+				return false;
+				
+			return true;
+		}
+		current = current->next;
+	}
+	
+	return false;
+}

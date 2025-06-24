@@ -145,6 +145,103 @@ void	prompt(Contact *contacts)
 					}
 					break;
 
+				case 4:
+					{
+						ft_printf("Enter ID of contact to edit: \n");
+						char *edit_id_input = get_next_line(0, false);
+						int id_to_edit = ft_atoi(edit_id_input);
+						free(edit_id_input);
+						
+						// Check if contact with this ID exists
+						Contact *temp = contacts;
+						t_bool found = false;
+						while (temp) {
+							if (temp->id == id_to_edit && !temp->removed) {
+								found = true;
+								break;
+							}
+							temp = temp->next;
+						}
+						
+						if (!found) {
+							ft_printf("Error: Contact with ID %d not found.\n", id_to_edit);
+							break;
+						}
+						
+						ft_printf("Editing contact with ID %d\n", id_to_edit);
+						ft_printf("Enter new information (leave blank to keep current value):\n");
+						
+						// Get new name
+						ft_printf("Name [%s]: ", temp->name);
+						char *name_input = get_next_line(0, false);
+						char *new_name = ft_strtrim(name_input, "\n\r", false);
+						free(name_input);
+						
+						// Get new phone
+						ft_printf("Phone [%s]: ", temp->phone);
+						char *phone_input = get_next_line(0, false);
+						char *new_phone = ft_strtrim(phone_input, "\n\r", false);
+						free(phone_input);
+						
+						// Get new email
+						ft_printf("Email [%s]: ", temp->email);
+						char *email_input = get_next_line(0, false);
+						char *new_email = ft_strtrim(email_input, "\n\r", false);
+						free(email_input);
+						
+						// Get new city
+						ft_printf("City [%s]: ", temp->city);
+						char *city_input = get_next_line(0, false);
+						char *new_city = ft_strtrim(city_input, "\n\r", false);
+						free(city_input);
+						
+						// Get new address
+						ft_printf("Address [%s]: ", temp->address);
+						char *address_input = get_next_line(0, false);
+						char *new_address = ft_strtrim(address_input, "\n\r", false);
+						free(address_input);
+						
+						// Use empty inputs to keep current values
+						if (ft_strlen(new_name) == 0) {
+							free(new_name);
+							new_name = ft_strdup(temp->name);
+						}
+						
+						if (ft_strlen(new_phone) == 0) {
+							free(new_phone);
+							new_phone = ft_strdup(temp->phone);
+						}
+						
+						if (ft_strlen(new_email) == 0) {
+							free(new_email);
+							new_email = ft_strdup(temp->email);
+						}
+						
+						if (ft_strlen(new_city) == 0) {
+							free(new_city);
+							new_city = ft_strdup(temp->city);
+						}
+						
+						if (ft_strlen(new_address) == 0) {
+							free(new_address);
+							new_address = ft_strdup(temp->address);
+						}
+						
+						// Update the contact
+						if (update_contact(contacts, id_to_edit, new_name, new_phone, new_email, new_city, new_address))
+							ft_printf("Contact updated successfully.\n");
+						else
+							ft_printf("Failed to update contact. Please check your input.\n");
+						
+						// Free allocated memory
+						free(new_name);
+						free(new_phone);
+						free(new_email);
+						free(new_city);
+						free(new_address);
+					}
+					break;
+
 				case 5:
 					ft_printf("Enter ID of contact to remove: \n");
 
