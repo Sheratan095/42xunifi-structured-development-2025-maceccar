@@ -26,7 +26,6 @@ typedef struct Contact
 	char	*address;
 
 
-	int		max_id;
 	t_bool	removed;
 	Contact	*next;
 } Contact;

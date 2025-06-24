@@ -75,6 +75,76 @@ void	prompt(Contact *contacts)
 					free(city_query);
 					break;
 
+				case 3:
+					{
+						ft_printf("Enter new contact details:\n");
+						
+						// Find the maximum ID in the existing contacts
+						int	max_id = 0;
+						Contact *temp = contacts;
+						while (temp) {
+							if (temp->id > max_id) {
+								max_id = temp->id;
+							}
+							temp = temp->next;
+						}
+						
+						// New ID will be max_id + 1
+						int new_id = max_id + 1;
+						ft_printf("ID will be set to: %d\n", new_id);
+						
+						// Get name
+						ft_printf("Name: ");
+						char *name_input = get_next_line(0, false);
+						char *name = ft_strtrim(name_input, "\n\r", false);
+						free(name_input);
+						
+						// Get phone
+						ft_printf("Phone: ");
+						char *phone_input = get_next_line(0, false);
+						char *phone = ft_strtrim(phone_input, "\n\r", false);
+						free(phone_input);
+						
+						// Get email
+						ft_printf("Email: ");
+						char *email_input = get_next_line(0, false);
+						char *email = ft_strtrim(email_input, "\n\r", false);
+						free(email_input);
+						
+						// Get city
+						ft_printf("City: ");
+						char *city_input = get_next_line(0, false);
+						char *city = ft_strtrim(city_input, "\n\r", false);
+						free(city_input);
+						
+						// Get address
+						ft_printf("Address: ");
+						char *address_input = get_next_line(0, false);
+						char *address = ft_strtrim(address_input, "\n\r", false);
+						free(address_input);
+						
+						// Add the new contact
+						Contact *new_contacts = add_contact(contacts, new_id, name, phone, email, city, address);
+						
+						if (new_contacts)
+						{
+							contacts = new_contacts;
+							ft_printf("Contact added successfully.\n");
+						}
+						else
+						{
+							ft_printf("Failed to add contact. Please check your input.\n");
+						}
+						
+						// Free allocated memory
+						free(name);
+						free(phone);
+						free(email);
+						free(city);
+						free(address);
+					}
+					break;
+
 				case 5:
 					ft_printf("Enter ID of contact to remove: \n");
 
