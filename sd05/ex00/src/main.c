@@ -35,7 +35,7 @@ void	prompt(Contact *contacts)
 
 	do
 	{
-		ft_printf("\nEnter command (or type '%s' to save and exit): ", EXIT_COMMAND);
+		ft_printf("\nEnter command (or type '%s' to save and exit):\n", EXIT_COMMAND);
 		ft_printf("0: list all contacts\n");
 		ft_printf("1: search by name\n");
 		ft_printf("2: search by city\n");
@@ -49,47 +49,48 @@ void	prompt(Contact *contacts)
 
 		choice = ft_atoi(input);
 
-		switch (choice)
-		{
-
-			// case 0:
-			// 	show_all_contacts(contacts);
-			// 	break;
-
-			case 1:
-				printf("Enter name to search: \n");
-				char	*name_query = get_next_line(0, false);
-				printf("Searching for contacts with name: %s\n", name_query);
-				
-				// Free memory allocated by get_next_line
-				free(name_query);
-				break;
-
-			case 5:
-				printf("Enter ID of contact to remove: \n");
-
-				char	*remove_id = get_next_line(0, false);
-				int		id_to_remove = ft_atoi(remove_id);
-
-				if (remove_contact(contacts, id_to_remove))
-					printf("Contact with ID %d removed successfully.\n", id_to_remove);
-				else
-					printf("Error removing contact with ID %d.\n", id_to_remove);
-
-				free(remove_id);
-				break;
-
-			default:
-				break;
-		}
-
 		if (ft_strncmp(input, EXIT_COMMAND, ft_strlen(EXIT_COMMAND)) == 0)
 			exit_command = true;
+		else
+		{
+			switch (choice)
+			{
+				case 0:
+					show_all_contacts(contacts);
+					break;
 
+				case 1:
+					ft_printf("Enter name to search: \n");
+					char	*name_query = get_next_line(0, false);
+					ft_printf("Searching for contacts with name: %s\n", name_query);
+					
+					// Free memory allocated by get_next_line
+					free(name_query);
+					break;
+
+				case 5:
+					ft_printf("Enter ID of contact to remove: \n");
+
+					char	*remove_id = get_next_line(0, false);
+					int		id_to_remove = ft_atoi(remove_id);
+
+					if (remove_contact(contacts, id_to_remove))
+						ft_printf("Contact with ID %d removed successfully.\n", id_to_remove);
+					else
+						ft_printf("Error removing contact with ID %d.\n", id_to_remove);
+
+					free(remove_id);
+					break;
+
+				default:
+					ft_printf("Invalid command. Please try again.\n");
+					break;
+			}
+		}
 		free(input);
 	}
 	while (exit_command == false);
-\
+
 	// Clean up get_next_line resources
 	get_next_line(0, true);
 }

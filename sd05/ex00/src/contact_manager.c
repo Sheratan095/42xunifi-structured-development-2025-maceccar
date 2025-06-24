@@ -37,3 +37,30 @@ t_bool		save(const char *filename, Contact *contacts)
 	close(fd);
 	return true;
 }
+
+void	show_all_contacts(Contact *contacts)
+{
+	if (!contacts)
+	{
+		ft_printf("No contacts available.\n");
+		return ;
+	}
+
+	ft_printf("ID\tName\tPhone\tEmail\tCity\tAddress\n");
+	ft_printf("---------------------------------------------\n");
+
+	while (contacts)
+	{
+		if (!contacts->removed)
+		{
+			ft_printf("%d\t\t\t%s\t\t\t%s\t\t%s\t\t\t%s\t\t\t%s\n",
+				contacts->id,
+				contacts->name,
+				contacts->phone,
+				contacts->email,
+				contacts->city,
+				contacts->address ? contacts->address : "N/A");
+		}
+		contacts = contacts->next;
+	}
+}
