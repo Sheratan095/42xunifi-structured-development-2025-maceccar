@@ -64,7 +64,7 @@ void	prompt(Contact *contacts)
 		}
 
 	}
-	while (ft_strcmp(input, EXIT_COMMAND) != 0);
+	while (ft_strncmp(input, EXIT_COMMAND, ft_strlen(EXIT_COMMAND)) != 0);
 
 	get_next_line(0, true);
 }
