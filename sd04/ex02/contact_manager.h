@@ -31,7 +31,7 @@ Contact		*load_contacts(const char *filename);
 
 bool		check_file_extension(const char *filename);
 
-void		save(const char *filename, Contact *contacts);
+bool		save(const char *filename, Contact *contacts);
 
 // used in the main loop, it will be false when the user types save-and-exit
 bool		prompt(Contact *contacts);

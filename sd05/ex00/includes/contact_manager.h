@@ -1,11 +1,12 @@
 #ifndef CONTACT_MANAGER_H
 #define CONTACT_MANAGER_H
 
-#include <stdbool.h>
 #include <stdio.h>
 #include "corekit.h"
 
 #define TARGET_FILE_EXTENSION ".csv"
+
+#define EXIT_COMMAND "save-and-exit"
 
 typedef enum SeatchType
 {
@@ -24,26 +25,26 @@ typedef struct Contact
 	char	*city;
 	char	*address;
 
-	bool	removed;
+	t_bool	removed;
 	Contact	*next;
 } Contact;
 
 Contact		*load_contacts(const char *filename);
 
-bool		check_file_extension(const char *filename);
+t_bool		check_file_extension(const char *filename);
 
-void		save(const char *filename, Contact *contacts);
+t_bool		save(const char *filename, Contact *contacts);
 
 // used in the main loop, it will be false when the user types save-and-exit
-bool		prompt(Contact *contacts);
+t_bool		prompt(Contact *contacts);
 
 void		print_warning(const char *error, const char *line, int line_number);
 
 Contact		*add_contact(Contact *contacts, int id, const char *name, const char *phone, const char *email, const char *city, const char *address);
 
-bool		remove_contact(Contact *contacts, int id);
+t_bool		remove_contact(Contact *contacts, int id);
 
-bool		update_contact(Contact *contacts, int id, const char *new_name, const char *new_phone, const char *new_email, const char *new_city, const char *new_address);
+t_bool		update_contact(Contact *contacts, int id, const char *new_name, const char *new_phone, const char *new_email, const char *new_city, const char *new_address);
 
 void		show_all_contacts(Contact *contacts);
 
