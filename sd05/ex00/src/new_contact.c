@@ -1,10 +1,10 @@
 #include "contact_manager.h"
 
-static t_bool	is_valid_id(const char *id_str);
+static t_bool	is_valid_id(Contact *contacts, int	id);
 
 Contact		*add_contact(Contact *contacts, int id, const char *name, const char *phone, const char *email, const char *city, const char *address)
 {
-	if (!is_valid_id(ft_itoa(id)) || !name || !phone || !email || !city || !address)
+	if (!is_valid_id(contacts, id) || !name || !phone || !email || !city || !address)
 		return NULL;
 
 	if (contacts == NULL)
@@ -53,18 +53,21 @@ Contact		*add_contact(Contact *contacts, int id, const char *name, const char *p
 	}
 }
 
-static t_bool	is_valid_id(const char *id_str)
+static t_bool	is_valid_id(Contact *contacts, int	id)
 {
-	if (!id_str || *id_str == '\0')
+	if (id < 0)
 		return false;
-		
-	// Check if it's all digits
-	while (*id_str)
+
+	Contact	*current = contacts;
+	while (current)
 	{
-		if (!ft_isdigit(*id_str))
+		if (current->id == id && !current->removed)
+		{
+			ft_printf("Error: Contact with ID %d already exists.\n", id);
 			return false;
-		id_str++;
+		}
+		current = current->next;
 	}
-	
+
 	return true;
 }

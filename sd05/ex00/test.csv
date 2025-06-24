@@ -1,15 +1,15 @@
-1,John Doe,555-123-4567,john.doe@example.com,New York,123 Broadway St
-2,Jane Smith,555-987-6543,jane.smith@company.org,Los Angeles,456 Hollywood Blvd
-3,Robert Johnson,555-246-8024,rob@johnson.net,Chicago,789 Michigan Ave
-10,Maria Garcia,555-369-1470,maria.g@mail.com,Miami,101 Ocean Drive
-15,Michael Wang,555-753-9514,michael@wang.io,Seattle,202 Pike Street
-,Empty ID,555-111-2222,empty@id.com,Error City,Invalid Entry
+1,John Doe,5551234567,john.doe@example.com,New York,123 Broadway St
+2,Jane Smith,5559876543,jane.smith@company.org,Los Angeles,456 Hollywood Blvd
+3,Robert Johnson,5552468024,rob@johnson.net,Chicago,789 Michigan Ave
+10,Maria Garcia,5553691470,maria.g@mail.com,Miami,101 Ocean Drive
+15,Michael Wang,5557539514,michael@wang.io,Seattle,202 Pike Street
+,Empty ID,5551112222,empty@id.com,Error City,Invalid Entry
 20,Missing Fields,,,San Francisco,
-25,Extra Whitespace , 555-555-5555 , whitespace@test.com , Portland , 303 Rose St
-abc,Invalid ID,555-444-3333,invalid@id.com,Denver,404 Mountain Rd
-30,James Brown,not-a-phone,james@brown.com,Phoenix,505 Desert Ave
-42,Alice Cooper,555-777-8888,invalid-email,Nashville,606 Music Row
-7,Duplicate ID,555-222-3333,dup1@test.com,Austin,707 Texas St
-7,Duplicate ID,555-444-5555,dup2@test.com,Dallas,808 Cowboy Rd
-50,Sarah Johnson,555-666-7777,sarah@example.com,Boston,909 Freedom Trail
-100,David Miller,555-888-9999,david@miller.net,Washington DC,1010 Pennsylvania Ave
+25,Extra Whitespace , 5555555555 , whitespace@test.com , Portland , 303 Rose St
+abc,Invalid ID,5554443333,invalid@id.com,Denver,404 Mountain Rd
+30,James Brown,notaphone,james@brown.com,Phoenix,505 Desert Ave
+42,Alice Cooper,5557778888,invalidemail,Nashville,606 Music Row
+7,Duplicate ID,5552223333,dup1@test.com,Austin,707 Texas St
+7,Duplicate ID,5554445555,dup2@test.com,Dallas,808 Cowboy Rd
+50,Sarah Johnson,5556667777,sarah@example.com,Boston,909 Freedom Trail
+100,David Miller,5558889999,david@miller.net,Washington DC,1010 Pennsylvania Ave

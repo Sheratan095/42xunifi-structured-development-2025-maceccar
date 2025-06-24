@@ -25,6 +25,8 @@ typedef struct Contact
 	char	*city;
 	char	*address;
 
+
+	int		max_id;
 	t_bool	removed;
 	Contact	*next;
 } Contact;
@@ -36,8 +38,6 @@ t_bool		check_file_extension(const char *filename);
 t_bool		save(const char *filename, Contact *contacts);
 
 void		prompt(Contact *contacts);
-
-void		print_warning(const char *error, const char *line, int line_number);
 
 Contact		*add_contact(Contact *contacts, int id, const char *name, const char *phone, const char *email, const char *city, const char *address);
 
