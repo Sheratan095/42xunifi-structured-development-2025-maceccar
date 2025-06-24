@@ -39,6 +39,8 @@ t_bool		save(const char *filename, Contact *contacts);
 
 void		prompt(Contact *contacts);
 
+void		print_contact(Contact *contact);
+
 Contact		*add_contact(Contact *contacts, int id, const char *name, const char *phone, const char *email, const char *city, const char *address);
 
 t_bool		remove_contact(Contact *contacts, int id);

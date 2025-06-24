@@ -11,6 +11,7 @@ SRC = src/main.c \
 		src/contact_loading.c \
 		src/new_contact.c \
 		src/cleanup.c \
+		src/searching.c \
 
 FLAGS	= -g
 # FLAGS	+= -Wall -Werror -Wextra

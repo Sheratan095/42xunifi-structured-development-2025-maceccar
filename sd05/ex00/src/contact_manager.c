@@ -52,15 +52,21 @@ void	show_all_contacts(Contact *contacts)
 	while (contacts)
 	{
 		if (!contacts->removed)
-		{
-			ft_printf("%d\t\t\t%s\t\t\t%s\t\t%s\t\t\t%s\t\t\t%s\n",
-				contacts->id,
-				contacts->name,
-				contacts->phone,
-				contacts->email,
-				contacts->city,
-				contacts->address ? contacts->address : "N/A");
-		}
+			print_contact(contacts);
 		contacts = contacts->next;
 	}
+}
+
+void	print_contact(Contact *contact)
+{
+	if (!contact)
+		return ;
+
+	ft_printf("%d\t\t\t%s\t\t\t%s\t\t%s\t\t\t%s\t\t\t%s\n",
+		contact->id,
+		contact->name,
+		contact->phone,
+		contact->email,
+		contact->city,
+		contact->address ? contact->address : "N/A");
 }

@@ -62,10 +62,17 @@ void	prompt(Contact *contacts)
 				case 1:
 					ft_printf("Enter name to search: \n");
 					char	*name_query = get_next_line(0, false);
-					ft_printf("Searching for contacts with name: %s\n", name_query);
-					
-					// Free memory allocated by get_next_line
+
+					search_by_name(contacts, name_query);
 					free(name_query);
+					break;
+
+				case 2:
+					ft_printf("Enter city to search: \n");
+					char	*city_query = get_next_line(0, false);
+
+					search_by_city(contacts, city_query);
+					free(city_query);
 					break;
 
 				case 5:
