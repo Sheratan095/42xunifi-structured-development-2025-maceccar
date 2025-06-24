@@ -19,10 +19,10 @@ int	main(int argc, char **argv)
 
 	prompt(contacts);
 
-	// if (save(argv[1], contacts) == false)
-	// 	ft_printf("Contacts saved successfully to %s\n", argv[1]);
-	// else
-	// 	ft_printf("Error saving contacts to file: %s\n", argv[1]);
+	if (save(argv[1], contacts))
+		ft_printf("Contacts saved successfully to %s\n", argv[1]);
+	else
+		ft_printf("Error saving contacts to file: %s\n", argv[1]);
 
 	free_contacts(contacts);
 }

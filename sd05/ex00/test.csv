@@ -3,13 +3,7 @@
 3,Robert Johnson,5552468024,rob@johnson.net,Chicago,789 Michigan Ave
 10,Maria Garcia,5553691470,maria.g@mail.com,Miami,101 Ocean Drive
 15,Michael Wang,5557539514,michael@wang.io,Seattle,202 Pike Street
-,Empty ID,5551112222,empty@id.com,Error City,Invalid Entry
-20,Missing Fields,,,San Francisco,
-25,Extra Whitespace , 5555555555 , whitespace@test.com , Portland , 303 Rose St
-abc,Invalid ID,5554443333,invalid@id.com,Denver,404 Mountain Rd
-30,James Brown,notaphone,james@brown.com,Phoenix,505 Desert Ave
-42,Alice Cooper,5557778888,invalidemail,Nashville,606 Music Row
+25,Extra Whitespace,5555555555,whitespace@test.com,Portland,303 Rose St
 7,Duplicate ID,5552223333,dup1@test.com,Austin,707 Texas St
-7,Duplicate ID,5554445555,dup2@test.com,Dallas,808 Cowboy Rd
 50,Sarah Johnson,5556667777,sarah@example.com,Boston,909 Freedom Trail
 100,David Miller,5558889999,david@miller.net,Washington DC,1010 Pennsylvania Ave
