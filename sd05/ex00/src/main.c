@@ -31,10 +31,11 @@ void	prompt(Contact *contacts)
 {
 	char	*input = NULL;
 	int		choice = -1;
+	t_bool	exit_command = false;
 
 	do
 	{
-		ft_printf("Enter command (or type '%s' to save and exit): ", EXIT_COMMAND);
+		ft_printf("\nEnter command (or type '%s' to save and exit): ", EXIT_COMMAND);
 		ft_printf("0: list all contacts\n");
 		ft_printf("1: search by name\n");
 		ft_printf("2: search by city\n");
@@ -50,6 +51,7 @@ void	prompt(Contact *contacts)
 
 		switch (choice)
 		{
+
 			// case 0:
 			// 	show_all_contacts(contacts);
 			// 	break;
@@ -58,14 +60,36 @@ void	prompt(Contact *contacts)
 				printf("Enter name to search: \n");
 				char	*name_query = get_next_line(0, false);
 				printf("Searching for contacts with name: %s\n", name_query);
+				
+				// Free memory allocated by get_next_line
+				free(name_query);
+				break;
+
+			case 5:
+				printf("Enter ID of contact to remove: \n");
+
+				char	*remove_id = get_next_line(0, false);
+				int		id_to_remove = ft_atoi(remove_id);
+
+				if (remove_contact(contacts, id_to_remove))
+					printf("Contact with ID %d removed successfully.\n", id_to_remove);
+				else
+					printf("Error removing contact with ID %d.\n", id_to_remove);
+
+				free(remove_id);
+				break;
 
 			default:
 				break;
 		}
 
-	}
-	while (ft_strncmp(input, EXIT_COMMAND, ft_strlen(EXIT_COMMAND)) != 0);
+		if (ft_strncmp(input, EXIT_COMMAND, ft_strlen(EXIT_COMMAND)) == 0)
+			exit_command = true;
 
-	free(input);
+		free(input);
+	}
+	while (exit_command == false);
+\
+	// Clean up get_next_line resources
 	get_next_line(0, true);
 }

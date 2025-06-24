@@ -53,6 +53,26 @@ Contact		*add_contact(Contact *contacts, int id, const char *name, const char *p
 	}
 }
 
+t_bool		remove_contact(Contact *contacts, int id)
+{
+	if (contacts == NULL)
+		return false;
+
+	Contact	*current = contacts;
+
+	while (current != NULL)
+	{
+		if (current->id == id && !current->removed)
+		{
+			current->removed = true;
+			return true;
+		}
+		current = current->next;
+	}
+
+	return false;
+}
+
 static t_bool	is_valid_id(Contact *contacts, int	id)
 {
 	if (id < 0)
@@ -71,3 +91,4 @@ static t_bool	is_valid_id(Contact *contacts, int	id)
 
 	return true;
 }
+
