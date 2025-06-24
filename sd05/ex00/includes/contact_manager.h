@@ -35,8 +35,7 @@ t_bool		check_file_extension(const char *filename);
 
 t_bool		save(const char *filename, Contact *contacts);
 
-// used in the main loop, it will be false when the user types save-and-exit
-t_bool		prompt(Contact *contacts);
+void		prompt(Contact *contacts);
 
 void		print_warning(const char *error, const char *line, int line_number);
 

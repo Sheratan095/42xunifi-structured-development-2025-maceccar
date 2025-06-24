@@ -8,6 +8,8 @@ INCLUDES = -I./includes -I$(COREKIT_PATH)/includes
 
 SRC = src/main.c \
 		src/contact_manager.c \
+		src/contact_loading.c \
+		src/new_contact.c \
 
 FLAGS	= -g
 # FLAGS	+= -Wall -Werror -Wextra
